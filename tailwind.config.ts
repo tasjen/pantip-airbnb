@@ -76,10 +76,10 @@ const config = {
         },
         moveUpScaleDown: {
           '0%': { transform: 'translateY(0) scale(1)' },
-          '100%': { transform: 'translateY(-75px) scale(0.6)' },
+          '100%': { transform: 'translateY(-72px) scale(0.75)' },
         },
         moveDownScaleUp: {
-          '0%': { transform: 'translateY(-75px) scale(0.6)' },
+          '0%': { transform: 'translateY(-72px) scale(0.75)' },
           '100%': { transform: 'translateY(0) scale(1)' },
         },
         'accordion-up': {

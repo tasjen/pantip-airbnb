@@ -34,7 +34,7 @@ export default function SearchBar() {
   return (
     <form
       className={clsx(
-        'mx-auto flex items-center gap-2 px-6 pb-4 lg:max-w-[1080px]',
+        'mx-auto flex items-center gap-2 px-6 pb-4 lg:max-w-[900px]',
         !isAtTop
           ? 'md:-mb-16 md:animate-moveUpScaleDown'
           : 'md:animate-moveDownScaleUp',
