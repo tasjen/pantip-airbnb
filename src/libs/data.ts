@@ -46,21 +46,21 @@ export async function getPantipHighlights(): Promise<Highlight[]> {
   return z.array(Highlight).parse(rawJson?.data);
 }
 
-export async function getPantipForumData(slug: string): Promise<any> {
-  const res = await fetch(`https://pantip.com/forum/${slug}`, {
-    cache: 'no-store',
-  });
-  const htmlString = await res.text();
-  const dataTag = `<script id="__NEXT_DATA__" type="application/json">`;
-  const startIndex = htmlString.indexOf(dataTag) + dataTag.length;
-  const endIndex = htmlString.indexOf('</script>', startIndex);
+// export async function getPantipForumData(slug: string): Promise<any> {
+//   const res = await fetch(`https://pantip.com/forum/${slug}`, {
+//     cache: 'no-store',
+//   });
+//   const htmlString = await res.text();
+//   const dataTag = `<script id="__NEXT_DATA__" type="application/json">`;
+//   const startIndex = htmlString.indexOf(dataTag) + dataTag.length;
+//   const endIndex = htmlString.indexOf('</script>', startIndex);
 
-  // data in "__NEXT_DATA__"
-  const data = JSON.parse(htmlString.slice(startIndex, endIndex));
-  return data;
-}
+//   // data in "__NEXT_DATA__"
+//   const data = JSON.parse(htmlString.slice(startIndex, endIndex));
+//   return data;
+// }
 
-export async function getPantipHomePageData(): Promise<DataState> {
+export async function getPantipHomePageData(): Promise<Omit<DataState, 'highlights'>> {
   const res = await fetch('https://pantip.com', {
     cache: 'no-store',
   });
@@ -104,9 +104,12 @@ export async function getPantipHomePageData(): Promise<DataState> {
         .map((e: any) => ({ ...e, type: 'hitz' })),
     );
 
-  // get highlights
-  const highlights = await getPantipHighlights();
-  return { rooms, highlights, topPosts: [...realtimes, ...picks, ...hitzs] };
+  return { rooms, topPosts: [...realtimes, ...picks, ...hitzs] };
+}
+
+export async function getPantipData(): Promise<DataState> {
+  const [highlights, homepageData] = await Promise.all([getPantipHighlights(), getPantipHomePageData()])
+  return {highlights, ...homepageData}
 }
 
 export async function getPantipAnnounce(): Promise<any> {

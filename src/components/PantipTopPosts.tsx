@@ -17,11 +17,11 @@ export default function PantipTopPosts({ type }: Props) {
       <h1 className="m-4 ml-6 text-start text-3xl font-bold">
         Pantip {type[0]?.toUpperCase() + type.slice(1)}
       </h1>
-      <ul className="grid w-full grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-6">
+      <ul className="grid w-full grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6">
         {topPosts
           .filter((e) => e.type === type)
           .map((e) => (
-            <li key={e.topic_id} className="p-2 ">
+            <li key={e.topic_id} className="p-2">
               <a
                 href={`https://pantip.com/topic/${e.topic_id}`}
                 target="_blank"
@@ -31,18 +31,18 @@ export default function PantipTopPosts({ type }: Props) {
                     <img
                       src={e.thumbnail_url ?? ''}
                       alt={e.title}
-                      className="h-auto w-full rounded-lg"
+                      className="h-64 w-auto object-contain rounded-xl mx-auto"
                     />
-                    <p className="mt-2 text-pretty break-words font-bold">
+                    <p className="mt-2 font-bold truncate max-w-[80%]">
                       {e.title}
                     </p>
                   </>
                 ) : (
-                  <div className="flex min-h-56 items-center rounded-lg bg-border p-8">
-                    <p className="my-auto text-xl font-bold">{e.title}</p>
+                  <div className="flex h-64 items-center rounded-xl bg-border p-8 overflow-hidden text-ellipsis">
+                    <p className="text-lg font-bold text-center text-wrap mx-auto">{e.title}</p>
                   </div>
                 )}
-                <p>{e.author.name}</p>
+                <p className="mt-2 text-muted-foreground">{e.author.name}</p>
               </a>
             </li>
           ))}

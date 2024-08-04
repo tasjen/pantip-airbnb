@@ -7,7 +7,7 @@ import StickyFooter from '@/components/StickyFooter';
 export default async function Page() {
   return (
     <div className="mx-auto">
-      <Header className="sticky top-0 border-b border-x-white" />
+      <Header className="sticky top-0 border-b" />
       <main className="mx-auto max-w-[2400px]">
         <Highlights />
         <PantipTopPosts type="realtime" />
