@@ -83,7 +83,7 @@ export default function Footer({ className = '' }: Props) {
         </div>
       </div>
       <div className="border-b">
-        <div className="mx-auto flex max-w-[2400px] justify-between py-4">
+        <div className="mx-auto flex max-w-[2400px] justify-between px-12 py-4">
           <div className="flex flex-col">
             <a
               href="https://pantip.com/about/tos"
@@ -154,7 +154,7 @@ export default function Footer({ className = '' }: Props) {
         </div>
       </div>
       <div>
-        <p className="mx-auto max-w-[2400px] text-start">
+        <p className="mx-auto max-w-[2400px] px-12 text-start">
           © 2024 Internet Marketing co., ltd
         </p>
       </div>
