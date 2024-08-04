@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 
-"use client";
+'use client';
 
-import { useAppSelector } from "@/libs/hooks";
+import { useAppSelector } from '@/libs/hooks';
 
 export default function Highlights() {
   const highlights = useAppSelector((state) => state.dataReducer.highlights);
   return (
-    <>
-      <h1 className="m-4 ml-6 text-start text-3xl font-bold">
+    <div className="px-12">
+      <h1 className="m-4 ml-6 mt-8 text-start text-3xl font-bold">
         Pantip Highlight
       </h1>
       <ul className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-6">
@@ -16,7 +16,7 @@ export default function Highlights() {
           <li key={e.id} className="p-2">
             <a href={e.post_url} target="_blank">
               <img
-                src={e.image_url[0] ?? ""}
+                src={e.image_url[0] ?? ''}
                 alt={e.name}
                 className="h-auto w-full rounded-lg"
               />
@@ -25,6 +25,6 @@ export default function Highlights() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

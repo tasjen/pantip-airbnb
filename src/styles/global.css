@@ -99,12 +99,20 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground main-scroll;
   }
 }
 
 @layer utilities {
   .no-scroll::-webkit-scrollbar {
     width: 0;
+  }
+
+  .main-scroll::-webkit-scrollbar {
+    width: 0.75vw;
+  }
+
+  .main-scroll::-webkit-scrollbar-thumb {
+    background-color: #c3c3c3;
   }
 }

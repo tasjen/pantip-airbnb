@@ -60,7 +60,9 @@ export async function getPantipHighlights(): Promise<Highlight[]> {
 //   return data;
 // }
 
-export async function getPantipHomePageData(): Promise<Omit<DataState, 'highlights'>> {
+export async function getPantipHomePageData(): Promise<
+  Omit<DataState, 'highlights'>
+> {
   const res = await fetch('https://pantip.com', {
     cache: 'no-store',
   });
@@ -108,8 +110,11 @@ export async function getPantipHomePageData(): Promise<Omit<DataState, 'highligh
 }
 
 export async function getPantipData(): Promise<DataState> {
-  const [highlights, homepageData] = await Promise.all([getPantipHighlights(), getPantipHomePageData()])
-  return {highlights, ...homepageData}
+  const [highlights, homepageData] = await Promise.all([
+    getPantipHighlights(),
+    getPantipHomePageData(),
+  ]);
+  return { highlights, ...homepageData };
 }
 
 export async function getPantipAnnounce(): Promise<any> {

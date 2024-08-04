@@ -1,10 +1,10 @@
-import { UserRound } from "lucide-react";
+import { UserRound } from 'lucide-react';
 
 type Props = {
   className?: string;
 };
 
-export default function StickyFooter({ className = "" }: Props) {
+export default function StickyFooter({ className = '' }: Props) {
   return (
     <a
       href="https://pantip.com/login"
