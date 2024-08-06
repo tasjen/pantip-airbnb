@@ -1,0 +1,6 @@
+- Migrate to Nuxt
+- Improve post image sizing (w and h should be the same)
+- Fix mobile UI: X margin of the page and Y margin of the nav slider
+- Fix Search animation
+- Add text loop animation to truncated post titles
+- Add room route
